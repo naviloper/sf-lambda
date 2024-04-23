@@ -1,0 +1,25 @@
+{
+  "name": "sf-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naviloper/sf-lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naviloper/sf-lambda/issues"
+  },
+  "homepage": "https://github.com/naviloper/sf-lambda#readme",
+  "devDependencies": {
+    "serverless-lift": "^1.28.1"
+  }
+}

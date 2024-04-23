@@ -13,15 +13,15 @@ provider:
         APP_ENV: prod
 
 plugins:
-    - ./vendor/bref/bref
-
+  - ./vendor/bref/bref
+  - serverless-lift
 functions:
     # This function runs the Symfony website/API
     web:
         handler: public/index.php
         timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
         layers:
-            - ${bref:layer.php-82-fpm}
+            - ${bref:layer.php-83-fpm}
         events:
             - httpApi: '*'
     # This function let us run console commands in Lambda
@@ -29,7 +29,7 @@ functions:
         handler: bin/console
         timeout: 120 # in seconds
         layers:
-            - ${bref:layer.php-82} # PHP
+            - ${bref:layer.php-83} # PHP
             - ${bref:layer.console} # The "console" layer
 
 package:
@@ -45,3 +45,10 @@ package:
         - 'var/cache/prod/**'
         - 'public/build/entrypoints.json'
         - 'public/build/manifest.json'
+
+constructs:
+    website:
+        type: server-side-website
+        assets:
+            '/images/*': public/images
+            # add here any file or directory that needs to be served from S3
